@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1c88de24-8459-47e8-8c92-87fef7ce00ec}</ProjectGuid>
+    <ProjectTypeGuids>{9992D51A-2F19-4988-86D5-10CF7AE14B55};{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{BBD0F5D1-1CC4-42fd-BA4C-A96779C64378}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoCompleteTextView</RootNamespace>
+    <AssemblyName>AutoCompleteTextView</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.dbl</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <Name>AutoCompleteTextView</Name>
+    <TargetPlatform>v4</TargetPlatform>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidDesignerPreferredDevice>3.7" WVGA (Nexus One)</AndroidDesignerPreferredDevice>
+    <AndroidUseLatestPlatformSdk />
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="mscorlib" />
+    <Reference Include="synrnt, Version=4.0.0.10, Culture=neutral, PublicKeyToken=114c5dbb1312a8bc">
+      <HintPath>packages\Synergex.SynergyDE.synrnt.10.2.300\lib\MonoAndroid\synrnt.dll</HintPath>
+      <CopyLocal>True</CopyLocal>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activity1.dbl" />
+    <Compile Include="Resources\Resource.Designer.dbl" />
+    <Compile Include="Properties\AssemblyInfo.dbl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Layout\Main.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Values\Strings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Properties\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Drawable\" />
+    <Folder Include="Resources\Layout\" />
+    <Folder Include="Resources\Values\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\UsStates.txt">
+      <SubType>Content</SubType>
+    </AndroidAsset>
+    <Content Include="Properties\AndroidManifest.xml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Synergex\MonoAndroid\Synergex.Android.Synergy.targets" />
+  <Import Project="packages\Synergex.SynergyDE.synrnt.10.2.300\tools\Synergex.SynergyDE.synrnt.targets" Condition="Exists('packages\Synergex.SynergyDE.synrnt.10.2.300\tools\Synergex.SynergyDE.synrnt.targets')" />
+  <Target Name="EnsureSynrntImported" BeforeTargets="BeforeBuild" Condition="'$(EnsureSynrntImported)' == ''">
+    <Error Condition="!Exists('packages\Synergex.SynergyDE.synrnt.10.2.300\tools\Synergex.SynergyDE.synrnt.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('packages\Synergex.SynergyDE.synrnt.10.2.300\tools\Synergex.SynergyDE.synrnt.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+     Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

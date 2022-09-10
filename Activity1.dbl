@@ -1,0 +1,45 @@
+﻿import System
+import Android.App
+import Android.Content
+import Android.Runtime
+import Android.Views
+import Android.Widget
+import Android.OS
+
+namespace AutoCompleteTextView
+
+	{Activity (Label = "AutoCompleteTextView", MainLauncher = true, Icon = "@drawable/icon")}
+	public class Activity1 extends Activity
+		
+		protected override method OnCreate, void
+			bundle, @Bundle 
+		proc
+			parent.OnCreate (bundle)
+			
+			;; Set our view from the "main" layout resource
+			SetContentView (Resource.Layout.Main)
+			
+			;;Example 1 - Auto complete from an array of strings
+			data autoCompleteData, [#]String, new String[#] { "Red", "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet" }
+			data adapter1, @ArrayAdapter, new ArrayAdapter(this, Android.Resource.Layout.SimpleDropDownItem1Line, autoCompleteData)			
+			data textBox1 = FindViewById<AutoCompleteTextView> (Resource.Id.AutoCompleteInput1)
+			textBox1.Adapter = adapter1
+
+			;;Example 2 - Auto complete from strings in an Asset text fille
+			data seedDataStream, @System.IO.Stream, Assets.Open("UsStates.txt")
+			data lines, @System.Collections.Generic.List<String>, new System.Collections.Generic.List<String>()
+			disposable data reader, @System.IO.StreamReader, new System.IO.StreamReader(seedDataStream)
+			data line, String
+			while ((line = reader.ReadLine()) != ^null)
+				lines.Add(line)
+			data wordlist, [#]String, lines.ToArray()
+			data adapter2, @ArrayAdapter, new ArrayAdapter(this, Android.Resource.Layout.SimpleDropDownItem1Line, wordlist)
+			data textbox2 = FindViewById<AutoCompleteTextView> (Resource.Id.AutoCompleteInput2)
+			textbox2.Adapter = adapter2
+			
+		endmethod
+		
+	endclass
+	
+endnamespace
+

@@ -1,0 +1,27 @@
+<!--
+***********************************************************************************************
+Synrnt.targets
+
+WARNING:  DO NOT MODIFY this file unless you are knowledgeable about MSBuild and have
+          created a backup copy.  Incorrect changes to this file will make it
+          impossible to load or build your projects from the command-line or the IDE.
+
+Copyright (C) Microsoft Corporation. All rights reserved.
+***********************************************************************************************
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <EnsureSynrntImported>true</EnsureSynrntImported>
+        <AppTargetFxAndroid Condition= "'$(AndroidApplication)' == 'true' ">true</AppTargetFxAndroid>	
+    </PropertyGroup>
+    <Target Name="InjectReferenceAndroid" BeforeTargets="ResolveAssemblyReferences" Condition=" ('$(AppTargetFxAndroid)' == 'true')  AND ('$(DesignTimeBuild)' != 'true')">
+        <ItemGroup>
+            <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\lib\native\monoandroid\x86\libsynrtl.so">
+                <Abi>x86</Abi>
+            </AndroidNativeLibrary>
+            <AndroidNativeLibrary Include="$(MSBuildThisFileDirectory)..\lib\native\monoandroid\arm\libsynrtl.so">
+                <Abi>armeabi-v7a</Abi>
+            </AndroidNativeLibrary>
+        </ItemGroup>
+    </Target>
+</Project>

@@ -1,0 +1,109 @@
+namespace AutoCompleteTextView
+
+	{System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")}
+	public partial class Resource
+
+		public partial class Attribute
+
+			private method Attribute
+				endparams
+			proc
+
+		endmethod
+
+		static method Attribute
+			endparams
+		proc
+			Android.Runtime.ResourceIdManager.UpdateIdValues()
+	endmethod
+endclass
+
+public partial class Drawable
+
+private method Drawable
+	endparams
+proc
+
+endmethod
+
+;; aapt resource value: 0x7f020000
+public const Icon, int, 2130837504
+
+static method Drawable
+endparams
+proc
+Android.Runtime.ResourceIdManager.UpdateIdValues()
+endmethod
+endclass
+
+public partial class Id
+
+private method Id
+endparams
+proc
+
+endmethod
+
+;; aapt resource value: 0x7f050000
+public const AutoCompleteInput1, int, 2131034112
+;; aapt resource value: 0x7f050001
+public const AutoCompleteInput2, int, 2131034113
+
+static method Id
+endparams
+proc
+Android.Runtime.ResourceIdManager.UpdateIdValues()
+endmethod
+endclass
+
+public partial class Layout
+
+private method Layout
+endparams
+proc
+
+endmethod
+
+;; aapt resource value: 0x7f030000
+public const Main, int, 2130903040
+
+static method Layout
+endparams
+proc
+Android.Runtime.ResourceIdManager.UpdateIdValues()
+endmethod
+endclass
+
+public partial class String
+
+private method String
+endparams
+proc
+
+endmethod
+
+;; aapt resource value: 0x7f040001
+public const ApplicationName, int, 2130968577
+;; aapt resource value: 0x7f040000
+public const Hello, int, 2130968576
+
+static method String
+endparams
+proc
+Android.Runtime.ResourceIdManager.UpdateIdValues()
+endmethod
+endclass
+
+public static method UpdateIdValues, void
+endparams
+proc
+
+endmethod
+
+static method Resource
+endparams
+proc
+Android.Runtime.ResourceIdManager.UpdateIdValues()
+endmethod
+endclass
+endnamespace
